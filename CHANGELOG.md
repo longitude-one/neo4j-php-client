@@ -1,3 +1,10 @@
+# Changelog for v5
+
+5.0.0 - Not published yet
+
+- Added support for PHP7.4
+- Removed support for PHP7.1 and less
+
 # Changelog for v4
 
 4.6.3 - 16 October 2016

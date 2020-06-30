@@ -1,19 +1,27 @@
 # GraphAware Neo4j PHP Client
 
-## An Enterprise Grade Client for Neo4j
+This Neo4j PHP Client is a fork of the GraphAware Neo4j PHP Client. Since this package was not maintained since 2017 and
+was archived to a readonly repository, LongitudeOne decided to fork it and to create a really new package. A simple fork
+was a problem because issues and pull requests are still centralized on graphaware/neo4j-php-client.
 
-[![Build Status](https://travis-ci.org/graphaware/neo4j-php-client.svg?branch=master)](https://travis-ci.org/graphaware/neo4j-php-client)
-[![Latest Stable Version](https://poser.pugx.org/graphaware/neo4j-php-client/v/stable.svg)](https://packagist.org/packages/graphaware/neo4j-php-client)
-[![Total Downloads](https://poser.pugx.org/graphaware/neo4j-php-client/downloads.svg)](https://packagist.org/packages/graphaware/neo4j-php-client)
-[![License](https://poser.pugx.org/graphaware/neo4j-php-client/license.svg)](https://packagist.org/packages/graphaware/neo4j-php-client)
+## # LongitudeOne Neo4j PHP Client
+
+[![Build Status](https://travis-ci.org/longitude-one/neo4j-php-client.svg?branch=master)](https://travis-ci.org/longitude-one/neo4j-php-client)
+[![Latest Stable Version](https://poser.pugx.org/longitude-one/neo4j-php-client/v/stable.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
+[![Total Downloads](https://poser.pugx.org/longitude-one/neo4j-php-client/downloads.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
+[![License](https://poser.pugx.org/longitude-one/neo4j-php-client/license.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
 
 ## Introduction
 
-Neo4j-PHP-Client is the most advanced and flexible [Neo4j](http://neo4j.com) Client for PHP.
+Originally created by GraphAware, Neo4j-PHP-Client is the most advanced and flexible [Neo4j](http://neo4j.com) Client for PHP.
+LongitudeOne is now maintaining this project.
 
 ### What is Neo4j?
 
-Neo4j is a transactional, open-source graph database. A graph database manages data in a connected data structure, capable of representing any kind of data in a very accessible way. Information is stored in nodes and relationships connecting them, both of which can have arbitrary properties. To learn more visit [What is a Graph Database](http://neo4j.com/developer/graph-database/)?
+Neo4j is a transactional, open-source graph database. A graph database manages data in a connected data structure,
+capable of representing any kind of data in a very accessible way. Information is stored in nodes and relationships
+connecting them, both of which can have arbitrary properties. To learn more
+visit [What is a Graph Database](http://neo4j.com/developer/graph-database/)?
 
 ### Key features
 
@@ -31,6 +39,8 @@ Neo4j is a transactional, open-source graph database. A graph database manages d
 | 2.3         |   Yes       |
 | 3.0 +       |   Yes       |
 
+This project has not been tested with the version 4.0+. Use it at your own risks.
+
 #### Neo4j Feature Support
 
 | **Feature**          | **Supported?** |
@@ -44,17 +54,19 @@ Neo4j is a transactional, open-source graph database. A graph database manages d
 
 ### Requirements
 
-* PHP >= 5.6
+As PHP7.1 and less are no more maintained, neo4j-php-client is now only tested with PHP7.2+ .
+
+* PHP >= 7.2
 * ext-bcmath
 * ext-mbstring
 * A Neo4j database (minimum version 2.2.6)
 
 ### Getting Help
 
-You can:
+To get help, you should:
 
- * [Ask a question on StackOverflow](http://stackoverflow.com/questions/ask?tags=graphaware,php,neo4j)
- * For bugs, please feel free to create a [new issue on GitHub](https://github.com/graphaware/neo4j-php-client/issues/new)
+ * [Ask a question on StackOverflow](http://stackoverflow.com/questions/ask?tags=php,neo4j)
+ * For bugs, please feel free to create a [new issue on GitHub](https://github.com/longitude-one/neo4j-php-client/issues/new)
 
 ### Implementations
 
@@ -67,7 +79,7 @@ You can:
 Add the library to your composer dependencies :
 
 ```bash
-composer require "graphaware/neo4j-php-client:^4.0"
+composer require "longitude-one/neo4j-php-client:^5.0"
 ```
 
 Require the composer autoloader, configure your connection by providing a connection alias and your connection settings :
@@ -477,7 +489,7 @@ $client = ClientBuilder::create()
 
 The timeout by default is 5 seconds.
 
-This feature is deprecated and will be removed in version 5. See Http client settings below. 
+This feature is deprecated and will be removed in version 5. See Http client settings below.
 
 ### TLS
 
