@@ -1,20 +1,52 @@
 language: php
-php:
-    - 7.2
-    - 7.3
-    - 7.4
+
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+
+jdk:
+    # Needed for local Neo4j 2.0+
+    - oraclejdk8
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 7.3
+          env: NEO4J_VERSION="enterprise-3.5.19"
+        - php: 7.4
+          env: NEO4J_VERSION="enterprise-3.5.19"
+        - php: 7.4
+          env: NEO4J_VERSION="enterprise-4.0.6"
+        - php: 7.4
+          env: NEO4J_VERSION="enterprise-4.1.0"
+        - php: 7.3
+          env: NEO4J_VERSION="community-3.5.19"
+        - php: 7.4
+          env: NEO4J_VERSION="community-3.5.19"
+        - php: 7.4
+          env: NEO4J_VERSION="community-4.0.6"
+        - php: 7.4
+          env: NEO4J_VERSION="community-4.1.0"
+    allow_failures:
+        - env: NEO4J_VERSION="community-4.0.6"
+        - env: NEO4J_VERSION="community-4.1.0"
+        - env: NEO4J_VERSION="enterprise-4.1.0"
+        - env: NEO4J_VERSION="enterprise-4.0.6"
 
 before_install:
-    - sudo apt-get update > /dev/null
-    # install Oracle JDK8
-    - sh -c ./build/install-jdk8.sh
-    # install and launch neo4j
-    - sh -c ./build/install-neo.sh
-    - composer self-update
-    - travis_retry composer install --prefer-source --no-interaction
+    - composer install --prefer-source --no-interaction
+
+install:
+    - wget http://dist.neo4j.org/neo4j-${NEO4J_VERSION}-unix.tar.gz
+    - mkdir neo
+    - tar xzf neo4j-${NEO4J_VERSION}-unix.tar.gz -C neo --strip-components=1
+    - sed -i.bak '0,/\(dbms\.security\.auth_enabled=\).*/s/^#//g' ./neo/conf/neo4j.conf
+    - cat ./neo/conf/neo4j.conf | grep auth_enabled
+    - neo/bin/neo4j start &
+    - sleep 10 # do not remove this line !
 
 script:
     - vendor/bin/phpunit --exclude-group fail
 
 notifications:
-    email: "christophe@graphaware.com"
+    email: "alexandre.tranchant@gmail.com"
