@@ -7,10 +7,9 @@ was a problem because issues and pull requests are still centralized on graphawa
 ## # LongitudeOne Neo4j PHP Client
 
 [![Build Status](https://travis-ci.org/longitude-one/neo4j-php-client.svg?branch=master)](https://travis-ci.org/longitude-one/neo4j-php-client)
-[![Latest Stable Version](https://poser.pugx.org/longitude-one/neo4j-php-client/v/stable.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
-[![Total Downloads](https://poser.pugx.org/longitude-one/neo4j-php-client/downloads.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
-[![License](https://poser.pugx.org/longitude-one/neo4j-php-client/license.svg)](https://packagist.org/packages/longitude-one/neo4j-php-client)
-
+[![Version](https://poser.pugx.org/longitude-one/neo4j-php-client/version)](//packagist.org/packages/longitude-one/neo4j-php-client)
+[![Total Downloads](https://poser.pugx.org/longitude-one/neo4j-php-client/downloads)](//packagist.org/packages/longitude-one/neo4j-php-client)
+[![License](https://poser.pugx.org/longitude-one/neo4j-php-client/license)](//packagist.org/packages/longitude-one/neo4j-php-client)
 ## Introduction
 
 Originally created by GraphAware, Neo4j-PHP-Client is the most advanced and flexible [Neo4j](http://neo4j.com) Client for PHP.
@@ -33,13 +32,10 @@ visit [What is a Graph Database](http://neo4j.com/developer/graph-database/)?
 
 | **Version** | **Tested**  |
 |-------------|-------------|
-| <= 2.2.6    |   No        |
-| >= 2.2.6    |   Yes       |
-| 2.2         |   Yes       |
-| 2.3         |   Yes       |
-| 3.0 +       |   Yes       |
+| 3.0         |   Yes       |
+| 3.5         |   Yes       |
 
-This project has not been tested with the version 4.0+. Use it at your own risks.
+This project cannot be used with the version 4.0+.
 
 #### Neo4j Feature Support
 
@@ -54,12 +50,13 @@ This project has not been tested with the version 4.0+. Use it at your own risks
 
 ### Requirements
 
-As PHP7.1 and less are no more maintained, neo4j-php-client is now only tested with PHP7.2+ .
+As PHP7.2 and less are no more maintained, neo4j-php-client is now only tested with PHP7.3+ .
 
-* PHP >= 7.2
+* PHP >= 7.3
 * ext-bcmath
+* ext-json
 * ext-mbstring
-* A Neo4j database (minimum version 2.2.6)
+* A Neo4j database (minimum version 3.0, maximum version 4.0 excluded)
 
 ### Getting Help
 
