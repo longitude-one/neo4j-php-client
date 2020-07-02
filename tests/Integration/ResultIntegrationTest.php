@@ -14,6 +14,7 @@ namespace GraphAware\Neo4j\Client\Tests\Integration;
 use GraphAware\Common\Type\Node;
 use GraphAware\Common\Type\Relationship;
 use InvalidArgumentException;
+use RuntimeException;
 
 /**
  * Class ResultIntegrationTest.
@@ -46,7 +47,7 @@ class ResultIntegrationTest extends IntegrationTestCase
         $result = $this->client->run('CREATE (n) RETURN id(n) as id');
         $record = $result->firstRecord();
 
-        $this->setExpectedException(InvalidArgumentException::class);
+        self::expectException(InvalidArgumentException::class);
         $record->nodeValue('id');
     }
 
@@ -56,7 +57,7 @@ class ResultIntegrationTest extends IntegrationTestCase
         $result = $this->client->run('CREATE (n)-[r:KNOWS]->(me) RETURN id(r) as r');
         $record = $result->firstRecord();
 
-        $this->setExpectedException(InvalidArgumentException::class);
+        self::expectException(InvalidArgumentException::class);
         $record->relationshipValue('r');
     }
 
@@ -67,7 +68,7 @@ class ResultIntegrationTest extends IntegrationTestCase
     {
         $this->emptyDb();
         $result = $this->client->run('MATCH (n) RETURN n');
-        $this->setExpectedException(\RuntimeException::class);
+        self::expectException(RuntimeException::class);
         $result->firstRecord();
     }
 
@@ -78,7 +79,7 @@ class ResultIntegrationTest extends IntegrationTestCase
     {
         $this->emptyDb();
         $result = $this->client->run('MATCH (n) RETURN n');
-        $this->setExpectedException(\RuntimeException::class);
+        self::expectException(RuntimeException::class);
         $result->getRecord();
     }
 }

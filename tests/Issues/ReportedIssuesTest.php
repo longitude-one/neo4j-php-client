@@ -13,7 +13,7 @@ namespace GraphAware\Neo4j\Client\Tests\Issues;
 
 use GraphAware\Neo4j\Client\Exception\Neo4jException;
 use GraphAware\Neo4j\Client\Tests\Integration\IntegrationTestCase;
-use Symfony\Component\Yaml\Exception\RuntimeException;
+use RuntimeException;
 
 class ReportedIssuesTest extends IntegrationTestCase
 {
@@ -26,7 +26,7 @@ class ReportedIssuesTest extends IntegrationTestCase
         $this->createNodeWithRels();
         $tx = $this->client->transaction();
         $tx->push('MATCH (n:Node) DELETE n');
-        $this->setExpectedException(Neo4jException::class);
+        self::expectException(Neo4jException::class);
         $tx->commit();
     }
 

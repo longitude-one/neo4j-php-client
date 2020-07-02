@@ -12,15 +12,16 @@
 namespace GraphAware\Neo4j\Client\Tests\Integration;
 
 use GraphAware\Neo4j\Client\ClientBuilder;
+use PHPUnit\Framework\TestCase;
 
-class IntegrationTestCase extends \PHPUnit_Framework_TestCase
+class IntegrationTestCase extends TestCase
 {
     /**
      * @var \GraphAware\Neo4j\Client\Client
      */
     protected $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $connections = array_merge($this->getConnections(), $this->getAdditionalConnections());
 

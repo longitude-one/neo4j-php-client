@@ -12,15 +12,16 @@
 namespace GraphAware\Neo4j\Client\Tests\Example;
 
 use GraphAware\Neo4j\Client\ClientBuilder;
+use PHPUnit\Framework\TestCase;
 
-abstract class ExampleTestCase extends \PHPUnit_Framework_TestCase
+abstract class ExampleTestCase extends TestCase
 {
     /**
      * @var \GraphAware\Neo4j\Client\Client
      */
     protected $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $boltUrl = 'bolt://localhost';
         if (isset($_ENV['NEO4J_USER'])) {

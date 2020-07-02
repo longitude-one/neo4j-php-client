@@ -13,8 +13,9 @@ namespace GraphAware\Neo4j\Client\Tests\Integration;
 
 use GraphAware\Neo4j\Client\ClientBuilder;
 use GraphAware\Neo4j\Client\Exception\Neo4jException;
+use PHPUnit\Framework\TestCase;
 
-class ClientGetExceptionIntegrationTest extends \PHPUnit_Framework_TestCase
+class ClientGetExceptionIntegrationTest extends TestCase
 {
     public function testExceptionHandling()
     {
@@ -32,7 +33,7 @@ class ClientGetExceptionIntegrationTest extends \PHPUnit_Framework_TestCase
             ->addConnection('default', $boltUrl)
             ->build();
 
-        $this->setExpectedException(Neo4jException::class);
-        $result = $client->run('CREATE (n:Cool');
+        self::expectException(Neo4jException::class);
+        $client->run('CREATE (n:Cool');
     }
 }

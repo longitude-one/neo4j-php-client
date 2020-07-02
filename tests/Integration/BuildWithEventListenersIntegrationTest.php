@@ -14,13 +14,14 @@ namespace GraphAware\Neo4j\Client\Tests\Integration;
 use GraphAware\Neo4j\Client\ClientBuilder;
 use GraphAware\Neo4j\Client\Exception\Neo4jExceptionInterface;
 use GraphAware\Neo4j\Client\Neo4jClientEvents;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class BuildWithEventListenersIntegrationTest.
  *
  * @group listener
  */
-class BuildWithEventListenersIntegrationTest extends \PHPUnit_Framework_TestCase
+class BuildWithEventListenersIntegrationTest extends TestCase
 {
     /**
      * @return string
@@ -49,7 +50,7 @@ class BuildWithEventListenersIntegrationTest extends \PHPUnit_Framework_TestCase
             ->registerEventListener(Neo4jClientEvents::NEO4J_ON_FAILURE, [$listener, 'onFailure'])
             ->build();
 
-        $result = $client->run('MATCH (n) RETURN count(n)');
+        $client->run('MATCH (n) RETURN count(n)');
         $this->assertTrue($listener->hookedPreRun);
         $this->assertTrue($listener->hookedPostRun);
     }

@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<phpunit bootstrap="./vendor/autoload.php" colors="true" verbose="true">
+<phpunit bootstrap="./vendor/autoload.php" colors="true" verbose="true"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd">
     <testsuites>
         <testsuite name="GraphAware Neo4j PHP Client Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <blacklist>
-            <directory>tests</directory>
-            <directory>vendor</directory>
-            <directory>bin</directory>
-        </blacklist>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
     </filter>
 </phpunit>

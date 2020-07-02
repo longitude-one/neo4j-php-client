@@ -1,6 +1,9 @@
 <?php
 
-namespace GraphAware\Neo4j\Client\Tests;
+namespace GraphAware\Neo4j\Client\Tests\Issues;
+
+use GraphAware\Bolt\Configuration;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DrupalIssueTest
@@ -8,14 +11,15 @@ namespace GraphAware\Neo4j\Client\Tests;
  *
  * @group drupal
  */
-class DrupalIssueTest extends \PHPUnit_Framework_TestCase
+class DrupalIssueTest extends TestCase
 {
     public function testDrupalConversion()
     {
-        $this->addConnection('default', 'bolt://neo4j:sfadfewfn;kewvljnfd@ssl+graphene.com', null);
+        $this->addConnection('bolt://neo4j:sfadfewfn;kewvljnfd@ssl+graphene.com', null);
+        self::assertTrue(true);
     }
 
-    private function addConnection($alias, $uri, $config)
+    private function addConnection($uri, $config)
     {
         if (substr($uri, 0, 7) === 'bolt://') {
             $parts = explode('bolt://', $uri );
@@ -28,14 +32,11 @@ class DrupalIssueTest extends \PHPUnit_Framework_TestCase
                     $u = $ups[0];
                     $p = $ups[1];
                     $uri = 'bolt://'.str_replace('ssl+', '', $split);
-                    $config = \GraphAware\Bolt\Configuration::newInstance()
+                    $config = Configuration::newInstance()
                         ->withCredentials($u, $p)
-                        ->withTLSMode(\GraphAware\Bolt\Configuration::TLSMODE_REQUIRED);
+                        ->withTLSMode(Configuration::TLSMODE_REQUIRED);
                 }
             }
         }
-
-        var_dump($uri);
-        var_dump($config);
     }
 }
