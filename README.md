@@ -1,15 +1,14 @@
-# GraphAware Neo4j PHP Client
+# Neo4j PHP Client
 
 This Neo4j PHP Client is a fork of the GraphAware Neo4j PHP Client. Since this package was not maintained since 2017 and
 was archived to a readonly repository, LongitudeOne decided to fork it and to create a really new package. A simple fork
-was a problem because issues and pull requests are still centralized on graphaware/neo4j-php-client.
-
-## # LongitudeOne Neo4j PHP Client
+was a problem because issues and pull requests were still centralized on graphaware/neo4j-php-client.
 
 [![Build Status](https://travis-ci.org/longitude-one/neo4j-php-client.svg?branch=master)](https://travis-ci.org/longitude-one/neo4j-php-client)
-[![Version](https://poser.pugx.org/longitude-one/neo4j-php-client/version)](//packagist.org/packages/longitude-one/neo4j-php-client)
-[![Total Downloads](https://poser.pugx.org/longitude-one/neo4j-php-client/downloads)](//packagist.org/packages/longitude-one/neo4j-php-client)
-[![License](https://poser.pugx.org/longitude-one/neo4j-php-client/license)](//packagist.org/packages/longitude-one/neo4j-php-client)
+[![Version](https://poser.pugx.org/longitude-one/neo4j-php-client/version)](https://packagist.org/packages/longitude-one/neo4j-php-client)
+[![Total Downloads](https://poser.pugx.org/longitude-one/neo4j-php-client/downloads)](https://packagist.org/packages/longitude-one/neo4j-php-client)
+[![License](https://poser.pugx.org/longitude-one/neo4j-php-client/license)](https://packagist.org/packages/longitude-one/neo4j-php-client)
+
 ## Introduction
 
 Originally created by GraphAware, Neo4j-PHP-Client is the most advanced and flexible [Neo4j](http://neo4j.com) Client for PHP.
@@ -35,7 +34,7 @@ visit [What is a Graph Database](http://neo4j.com/developer/graph-database/)?
 | 3.0         |   Yes       |
 | 3.5         |   Yes       |
 
-This project cannot be used with the version 4.0+.
+This project **cannot** be used with the version 4.0+.
 
 #### Neo4j Feature Support
 
@@ -76,7 +75,7 @@ To get help, you should:
 Add the library to your composer dependencies :
 
 ```bash
-composer require "longitude-one/neo4j-php-client:^5.0"
+composer require "longitude-one/neo4j-php-client:^1.0"
 ```
 
 Require the composer autoloader, configure your connection by providing a connection alias and your connection settings :
